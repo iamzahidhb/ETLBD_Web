@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "GalleryItem": {
+      "title": "Gallery Item",
+      "description": "An image item for the gallery section",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "category", "imageUrl", "createdAt"]
+    },
+    "Partner": {
+      "title": "Partner",
+      "description": "A partner logo/entity",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "logo", "createdAt"]
+    },
+    "Stat": {
+      "title": "Stat/Achievement",
+      "description": "Key performance indicator or achievement",
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "value": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["label", "value", "createdAt"]
+    },
+    "AdminUser": {
+      "title": "Admin User",
+      "description": "A user with administrative privileges",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "username": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "super-admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "gallery": {
+      "schema": "GalleryItem",
+      "description": "Collection of gallery images"
+    },
+    "partners": {
+      "schema": "Partner",
+      "description": "Collection of partner logos"
+    },
+    "stats": {
+      "schema": "Stat",
+      "description": "Collection of achievements/stats"
+    },
+    "users": {
+      "schema": "AdminUser",
+      "description": "Collection of authorized users and their roles"
+    }
+  }
+}
